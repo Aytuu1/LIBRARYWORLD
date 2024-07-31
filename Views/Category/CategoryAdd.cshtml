@@ -1,0 +1,20 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLCATEGORY
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<div class="col-md-6 mx-auto form-group " style="margin-top:15%">
+    <h6 class="fw-bold text-xxl-center">Kategori Güncelleme Sayfası</h6>
+    <hr style="border:solid 2px black" />
+    <form  method="post">
+        <div>
+            <label>Kategori Adı</label>
+            <input type="text" class="form-control" name="NAME" />
+        </div>
+        <div class="mt-4">
+            <button class="btn fw-semibold w-100" style="margin-top: 25px; margin-bottom: 50px; background-color: #202f44; color: aliceblue" ">Kategori Ekle</button>
+        </div>
+    </form>
+
+</div>

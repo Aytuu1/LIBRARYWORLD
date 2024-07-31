@@ -1,0 +1,86 @@
+﻿@using LIBRARYMVC.Models.Entity
+@model List<TBLANNOUNCEMENT>
+
+
+@{
+    
+    string newColor ="";
+
+}
+
+
+
+@foreach (var x in Model)
+{
+    if (x.CATEGORY == "YENİ KİTAP")
+    {
+        newColor = "bg-light-yellow";
+    }
+    else if (x.CATEGORY == "KİTAPLAR HK.")
+    {
+        newColor = "bg-dark-blue";
+    }
+    else if (x.CATEGORY == "İLETİŞİM")
+    {
+        newColor = "bg-light-blue";
+    }
+    else
+    {
+        newColor = "bg-default";
+    }
+
+    <style>
+        .bg-light-yellow {
+            background-color: #ffffe0; 
+            color: #333; 
+        }
+
+        .bg-dark-blue {
+            background-color: #2c3e50; 
+            color: #ecf0f1; 
+        }
+
+        .bg-light-blue {
+            background-color: #d1ecf1; 
+            color: #0c5460; 
+        }
+
+        .bg-default {
+            background-color: #f8f9fa; 
+            color: #212529;
+        }
+
+        .post {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+          
+        }
+    </style>
+    <div class="post @newColor">
+
+        <div class="user-block">
+
+            <img class="img-circle img-bordered-sm" src="~/AdminLTE-3.0.4/dist/img/2.png" alt="user image">
+
+            <span class="username">
+
+                <a href="#">@x.CATEGORY</a>
+
+                <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+
+            </span>
+
+            <span class="description">@Convert.ToDateTime(@x.DATE).ToString("dd/MM/yyyy")</span>
+
+        </div>
+
+        <!-- /.user-block -->
+
+        <p>
+
+            @x.CONTENT
+        </p>
+
+    </div>
+}

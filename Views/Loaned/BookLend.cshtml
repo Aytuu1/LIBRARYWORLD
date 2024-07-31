@@ -1,0 +1,91 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLMOVEMENT
+@{
+    ViewBag.Title = "BookLend";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Ödünç Verme Formu</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        .card-header {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        }
+
+            .card-header h3 {
+                margin: 0;
+                color: white;
+            }
+
+        .form-control {
+            border-radius: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            border: none;
+            border-radius: 10px;
+        }
+
+            .btn-primary:hover {
+                background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3>Kitap Ödünç Verme Formu</h3>
+            </div>
+            <div class="card-body">
+                <form class="form-group" method="post">
+                    <div class="form-group">
+                        <label for="memberName">Üye Adı</label>
+                        @Html.DropDownListFor(k => k.TBLMEMBERS.ID, (List<SelectListItem>)ViewBag.value1, new { @class = "form-control", id = "memberName" })
+                    </div>
+                    <div class="form-group">
+                        <label for="bookName">Kitap Adı</label>
+                        @Html.DropDownListFor(k => k.TBLBOOK.ID, (List<SelectListItem>)ViewBag.value2, new { @class = "form-control", id = "bookName" })
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeName">Personel Adı</label>
+                        @Html.DropDownListFor(k => k.TBLEMPLOYES.ID, (List<SelectListItem>)ViewBag.value3, new { @class = "form-control", id = "employeeName" })
+                    </div>
+                    <div class="form-group">
+                        <label for="purchaseDate">Kitap Alış Tarihi</label>
+                        <input type="text" class="form-control" name="PURCHASEDATE" value="@DateTime.Now.ToShortDateString()" id="purchaseDate" />
+                    </div>
+                    <div class="form-group">
+                        <label for="returnDate">Kitap İade Tarihi</label>
+                        <input type="text" class="form-control" name="RETURNNDATE" value="@DateTime.Now.AddDays(7).ToShortDateString()" id="returnDate" />
+                    </div>
+                    <input type="hidden" value="false" name="TRANSACTIONSTATUS" />
+                    <button type="submit" class="btn btn-primary btn-block">Ödünç Ver</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

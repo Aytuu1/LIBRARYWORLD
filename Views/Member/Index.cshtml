@@ -1,0 +1,80 @@
+﻿@using LIBRARYMVC.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBLMEMBERS>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üyeler</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/table.css"> <!-- CSS dosyasını doğru yolda eklediğinizden emin olun -->
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("MemberSearch", "Member", FormMethod.Post))
+        {
+            <div class="form-group  ">
+                <b>Üye ara : &nbsp;</b>
+                @Html.TextBox("searchString", ViewBag.SearchString as string, new { @class = "form-control form-control-inline", placeholder = "Aranacak Üyeyi Giriniz" })
+                <input type="submit" value="Ara" class="btn btn-primary" />
+
+            </div>
+        }
+        <div class="table-container">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>AD</th>
+                        <th>Soyad</th>
+                        <th>Mail</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Şifre</th>
+                        <th>Telefon</th>
+                        <th>Okul</th>
+                        <th>Durum</th>
+                        <th>Güncelle</th>
+                        <th>Kitap Geçmişi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.NAME</td>
+                            <td>@item.SURNAME</td>
+                            <td>@item.MAIL</td>
+                            <td>@item.USERNAME</td>
+                            <td>@item.PASSWORD</td>
+                            <td>@item.PHONE</td>
+                            <td>@item.SCHOOL</td>
+                            <td><a href="/Member/MemberDelete/@item.ID" class="btn btn-danger">Pasif Duruma Al</a></td>
+                            <td><a href="/Member/MemberGet/@item.ID" class="btn btn-success">Güncelle</a></td>
+                            <td><a href="/Member/BookHistory/@item.ID" class="btn btn-success">Kitap Geçmişi</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+        <a href="/Member/MemberAdd/" class="btn btn-primary btn-block">Yeni Üye Ekle</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

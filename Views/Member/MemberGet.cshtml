@@ -1,0 +1,56 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLMEMBERS
+@{
+    ViewBag.Title = "MemberGet";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+
+<div class="col-md-6 mx-auto form-group " style="margin-top:3%">
+    <h6 class="fw-bold text-xxl-center">Üye Güncelleme Sayfası</h6>
+    <hr style="border:solid 2px black" />
+    @using (Html.BeginForm("MemberUpdate", "Member", FormMethod.Post))
+    {
+        <div>
+
+            <label>Personel ID</label>
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+
+            <br />
+
+            <label>Adı</label>
+            @Html.TextBoxFor(x => x.NAME, new { @class = "form-control" })
+            <br />
+
+            <label>Soyadı</label>
+            @Html.TextBoxFor(x => x.SURNAME, new { @class = "form-control" })
+            <br />
+
+            <label>Mail</label>
+            @Html.TextBoxFor(x => x.MAIL, new { @class = "form-control" })
+            <br />
+
+            <label>Kullanıcı Adı</label>
+            @Html.TextBoxFor(x => x.USERNAME, new { @class = "form-control" })
+            <br />
+
+            <label>Şifre</label>
+            @Html.TextBoxFor(x => x.PASSWORD, new { @class = "form-control" })
+            <br />
+
+            <label>Fotoğraf</label>
+            @Html.TextBoxFor(x => x.PHOTO, new { @class = "form-control" })
+            <br />
+
+            <label>Telefon</label>
+            @Html.TextBoxFor(x => x.PHONE, new { @class = "form-control" })
+            <br />
+
+            <label>Okul</label>
+            @Html.TextBoxFor(x => x.SCHOOL, new { @class = "form-control" })
+        </div>
+
+        <div class="mt-4">
+            <button class="btn fw-semibold w-100" style="margin-top: 25px; margin-bottom: 50px; background-color: #202f44; color: aliceblue">Güncelle</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,113 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Entity Framework MVC-Kütüphane</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-<sha>" crossorigin="anonymous" />
+
+    <style>
+        body {
+            font-family: "monospace", sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 240px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 16px;
+        }
+
+            .sidebar a {
+                padding: 10px 14px 10px 10px;
+                text-decoration: none;
+                font-size: 18px;
+                color: white;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    color: #0094ff;
+                }
+
+        .main {
+            margin-left: 240px;
+            padding: 0px 10px;
+        }
+
+        @@media screen and (max-height: 450px) {
+
+            .sidebar {
+                padding-top: 15px;
+            }
+
+                .sidebar a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="d-flex flex-column flex-shrink-0  text-white " style="width:280px; height:100%">
+            <a href="/Home/Index/"> <span class="fs-5"> <i class="fa-solid fa-house "></i>&nbsp; Anasayfa</span></a>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item "><a href="/Category/Index" class="text-decoration-none fs-5 "><i class="fa-sharp fa-solid fa-list me-3 "></i>Kategoriler</a></li>
+                <li><a href="/Book/Index/" class="text-decoration-none fs-5 "><i class="fa-sharp fa-solid fa-book me-3 "></i>Kitaplar</a></li>
+                <li><a href="/Writer/Index/" class="text-decoration-none fs-5 "><i class="fa-sharp fa-solid fa-pencil me-3"></i>Yazarlar</a></li>
+                <li><a href="/Member/Index/" class="text-decoration-none fs-5"><i class="fa-sharp fa-solid fa-user me-3 "></i>Üyeler</a></li>
+                <li><a href="/Employe/Index/" class="text-decoration-none fs-5"><i class="fa-solid fa-street-view me-3"></i>Personeller</a></li>
+                <li><a href="/Loaned/BookLend/" class="text-decoration-none fs-5"><i class="fa-regular fa-hand-point-right me-3"></i>Ödünç Kitap Ver</a></li>
+
+
+
+                <li><a href="/Loaned/Index/" class="text-decoration-none fs-5"><i class="fa-regular fa-hand-point-left me-3"></i>Ödünç Kitap Al</a></li>
+                <li><a href="/Statistics/Index/" class="text-decoration-none fs-5"><i class="fa-solid fa-chart-line"></i>&nbsp; İstatistikler</a></li>
+
+                <li><a href="/Announcement/Index/" class="text-decoration-none fs-5"><i class="bi bi-megaphone"></i>&nbsp&nbspDuyurular</a></li>
+                <li><a href="/Process/Index/" class="text-decoration-none fs-5"><i class="fa-brands fa-creative-commons-nd me-3"></i>İşlemler</a></li>
+                <li><a href="/Inactive/Index/" class="text-decoration-none fs-5"><i class="bi bi-archive"></i>&nbsp Pasif Veriler</a></li>
+                <li><a href="/Statistics/Weather/" class="text-decoration-none fs-5"><i class="bi bi-cloud-sun"></i> &nbsp;Hava Raporu</a></li>
+                <li><a href="/Statistics/WeatherCard/" class="text-decoration-none fs-5"><i class="bi bi-umbrella"></i> &nbsp;Hava Kartları</a></li>
+
+                <li><a href="/Statistics/Gallery/" class="text-decoration-none fs-5"><i class="fa-brands fa-envira me-3"></i>Galeri</a></li>
+                <li><a href="/Statistics/LinqCard/" class="text-decoration-none fs-5"><i class="fa-brands fa-bookmark"></i>&nbsp;&nbsp&nbspBilgi Kartları</a></li>
+                <li><a href="/ShowCase/Index/" class="text-decoration-none fs-5"><i class="fa-solid fa-sliders me-3"></i>Vitrin</a></li>
+                <li><a href="/Graphic/Index/" class="text-decoration-none fs-5"><i class="fa-solid fa-chart-pie"></i>&nbsp;&nbsp;Grafikler</a></li>
+                @if (User.IsInRole("A"))
+                {
+                <li class="mt-1"><a href="/Settings/Index/" class="text-decoration-none fs-5"><i class="fa-solid fa-gear me-3"></i>Ayarlar</a></li>
+                }
+                <li><a href="/Panel/LogOut/" class="text-decoration-none fs-5"><i class="fa-solid fa-right-from-bracket me-3"></i>Çıkış</a></li>
+            </ul>
+            <hr>
+        </div>
+        <div>
+        </div>
+    </div>
+    <div class="main">
+        @RenderBody()
+    </div>
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

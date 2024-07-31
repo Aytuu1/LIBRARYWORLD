@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "SentMessageDetail";
+    Layout = "~/Views/Shared/LayoutPanel.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gönderilen Mesajlar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Gönderilen Mesajlar</h3>
+                <div class="card-tools">
+                    <a href="@Url.Action("Messages", new { type = "received" })" class="btn btn-secondary">Gelen Mesajlar</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive mailbox-messages">
+                    <table class="table table-hover table-striped">
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="icheck-primary">
+                                            <input type="checkbox" value="" id="check@x.ID">
+                                            <label for="check@x.ID"></label>
+                                        </div>
+                                    </td>
+                                    <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                                    <td class="mailbox-name">
+                                        <a href="@Url.Action("SentMessageDetail", new { id = x.ID })">@x.BUYER</a>
+                                    </td>
+                                    <td class="mailbox-subject">
+                                        <b>@x.SUBJECT</b>
+                                    </td>
+                                    <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td>
+                                    <td class="mailbox-date">@Convert.ToDateTime(x.DATE).ToString("dd/MM/yyyy")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

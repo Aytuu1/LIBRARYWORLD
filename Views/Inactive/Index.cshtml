@@ -1,0 +1,272 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+<style>
+    .table-container {
+        margin-top: 20px;
+        max-height: auto;
+        overflow-y: auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    
+    .table {
+        margin-bottom: 0;
+        border-radius: 15px;
+    }
+
+    th, td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+     
+        background: linear-gradient(135deg, #0fff 0%, #8f94fb 100%);
+        color: white;
+      
+    }
+
+    .btn {
+        border-radius: 10px;
+    }
+
+    .btn-danger {
+        background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+        border: none;
+    }
+
+        .btn-danger:hover {
+            background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+        }
+
+    .btn-success {
+        background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+        border: none;
+    }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #8f94fb 0%, #4e54c8 100%);
+        }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+        }
+
+    h2 {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .table-container {
+            overflow-x: auto;
+        }
+
+        th, td {
+            font-size: 12px;
+            padding: 8px;
+        }
+
+        .btn {
+            font-size: 12px;
+            padding: 6px 12px;
+        }
+
+        .card-body {
+            padding: 1rem;
+        }
+    }
+</style>
+
+<div class="container">
+    <div class="card mb-3">
+        <div class="card-header">
+            Pasif Kategoriler
+        </div>
+        <div class="card-body table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="fw-bold">
+                        <th>Kategori Adı</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var category in ViewBag.Categories as List<LIBRARYMVC.Models.Entity.TBLCATEGORY>)
+                    {
+                        <tr>
+                            <td>@category.NAME</td>
+                            <td><a href="@Url.Action("ActivateCategory", "Inactive", new { id = category.ID })" class="btn btn-primary">Aktifleştir</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            Pasif Kitaplar
+        </div>
+        <div class="card-body table-container" >
+            <table class="table table-striped">
+                <thead >
+                    <tr class="fw-bolder" >
+                        <th>Kitap Adı</th>
+                        <th>Kategori</th>
+                        <th>Yazar</th>
+                        <th>Basım Yılı</th>
+                        <th>YayınEvi</th>
+                        <th>Sayfa Sayısı</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in ViewBag.Books as List<LIBRARYMVC.Models.Entity.TBLBOOK>)
+                    {
+                        <tr>
+                            <td>@book.NAME</td>
+                            <td>@book.TBLCATEGORY.NAME</td>
+                            <td>@book.TBLWRITER.NAME @book.TBLWRITER.SURNAME</td>
+                            <td>@book.PRINTINGYEAR</td>
+                            <td>@book.PUBLISHER</td>
+                            <td>@book.PAGE</td>
+                            <td><a href="@Url.Action("ActivateBook", "Inactive", new { id = book.ID })" class="btn btn-primary">Aktifleştir</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            Pasif Personeller
+        </div>
+        <div class="card-body table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Adı ve Soyadı</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in ViewBag.Employees as List<LIBRARYMVC.Models.Entity.TBLEMPLOYES>)
+                    {
+                        <tr>
+                            <td>@employee.EMPLOYE</td>
+                            <td><a href="@Url.Action("ActivateEmployee", "Inactive", new { id = employee.ID })" class="btn btn-primary">Aktifleştir</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            Pasif Üyeler
+        </div>
+        <div class="card-body table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ADI</th>
+                        <th>Soyadı</th>
+                        <th>Mail</th>
+                        <th>Kullanıcı Adı</th>
+                        <th>Öğrenim Durumu</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var member in ViewBag.Members as List<LIBRARYMVC.Models.Entity.TBLMEMBERS>)
+                    {
+                        <tr>
+                            <td>@member.NAME</td>
+                            <td>@member.SURNAME</td>
+                            <td>@member.MAIL</td>
+                            <td>@member.USERNAME</td>
+                            <td>@member.SCHOOL</td>
+                            <td><a href="@Url.Action("ActivateMember", "Inactive", new { id = member.ID })" class="btn btn-primary">Aktifleştir</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            Pasif Yazarlar
+        </div>
+        <div class="card-body table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Detay</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var writer in ViewBag.Writers as List<LIBRARYMVC.Models.Entity.TBLWRITER>)
+                    {
+                        <tr>
+                            <td>@writer.NAME</td>
+                            <td>@writer.SURNAME</td>
+                            <td>@writer.DETAIL</td>
+                            <td><a href="@Url.Action("ActivateWriter", "Inactive", new { id = writer.ID })" class="btn btn-primary">Aktifleştir</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            Pasif Duyurular
+        </div>
+        <div class="card-body table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kategori</th>
+                        <th>İçerik</th>
+                        <th>Tarih</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in ViewBag.Announcement1 as List<LIBRARYMVC.Models.Entity.TBLANNOUNCEMENT>)
+                    {
+                        <tr>
+                            <td>@x.ID</td>
+                            <td>@x.CATEGORY</td>
+                            <td>@x.CONTENT</td>
+                            <td>@x.DATE</td>
+                            <td><a href="@Url.Action("ActiveAnnouncement", "Inactive", new { id = x.ID })" class="btn btn-primary">Aktifleştir</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

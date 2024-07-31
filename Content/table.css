@@ -1,0 +1,76 @@
+﻿.table-container {
+    margin-top: 20px;
+    max-height: auto; /* Tablonun yüksekliği */
+    overflow-y: auto; /* Dikey kaydırma çubuğunu etkinleştirir */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table {
+    margin-bottom: 0;
+    border-radius: 15px;
+}
+
+th, td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    background: linear-gradient(135deg, #ffd800 0%, #ff7e00 100%);
+    color: white;
+}
+
+.btn {
+    border-radius: 10px;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    border: none;
+}
+
+    .btn-danger:hover {
+        background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+    }
+
+.btn-success {
+    background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+    border: none;
+}
+
+    .btn-success:hover {
+        background: linear-gradient(135deg, #8f94fb 0%, #4e54c8 100%);
+    }
+
+.btn-primary {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border: none;
+}
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+    }
+
+h2 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .table-container {
+        overflow-x: auto;
+    }
+
+    th, td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}

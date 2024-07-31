@@ -1,0 +1,23 @@
+Kısa bir süre önce tamamlamış olduğum kütüphane projesini paylaşmak istiyorum. Bu proje üzerinde çalışırken birçok yeni teknik ve yöntem öğrendim ve öğrendiklerimi projeye entegre etmeye özen gösterdim. Proje kapsamında aşağıdaki başlıkları uyguladım:
+
+Layout Kontrolü
+Controller Yapısı
+Model Yapısı
+View Yapısı
+LINQ Sorguları
+Entity Framework Sorguları
+İlişkili Tablolar
+Diyagramlar
+Triggers Kullanımı
+Prosedür Oluşturma
+Hazır Template Kurulumu ve Düzenlenmesi
+CSS Kontrolleri
+Bootstrap Yapısı
+Dinamik Web Projeleri Oluşturma
+Dashboard Yapısı
+Chart ve Widget Cards Kullanımları
+Bu projeyi geliştirirken öğrendiğim ve uyguladığım tüm bu konular sayesinde hem teknik bilgi seviyemi artırdım hem de daha verimli bir yazılım geliştirme süreci deneyimledim.
+
+Admin Panel giriş için : /AdminLogin/Login/ 
+Mail: aytuuc1@gmail.com
+Şifre:852123456

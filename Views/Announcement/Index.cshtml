@@ -1,0 +1,60 @@
+﻿@using LIBRARYMVC.Models.Entity
+@model List<TBLANNOUNCEMENT>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+<style>
+    .announcement-card {
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+        .announcement-card .card-header {
+            background-color: #ffd800;
+            font-weight: bold;
+        }
+
+        .announcement-card .card-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .announcement-card .card-body .card-text {
+                margin-bottom: 0.5rem;
+            }
+
+        .announcement-card .card-footer {
+            display: flex;
+            justify-content: space-between;
+        }
+</style>
+
+<div class="mt-4"></div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="card announcement-card">
+                    <div class="card-header">
+                        Duyuru @item.ID
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.CATEGORY</h5>
+                        <p class="card-text">@Convert.ToDateTime(@item.DATE).ToString("dd/MM/yyyy")</p>
+                        <div class="card-footer">
+                            <a href="/Announcement/AnnouncementDelete/@item.ID" class="btn btn-danger">Pasif Duruma Al</a>
+                            <a href="/Announcement/AnnouncementDetail/@item.ID" class="btn btn-info">DETAYLAR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="mt-4">
+        <a href="/Announcement/NewAnnouncement/" class="btn btn-primary">Yeni Duyuru Ekle</a>
+    </div>
+</div>

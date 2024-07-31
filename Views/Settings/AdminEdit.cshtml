@@ -1,0 +1,36 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLADMİN
+@{
+    ViewBag.Title = "AdminEdit";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<div class="col-md-6 mx-auto form-group " style="margin-top:15%">
+    <h6 class="fw-bold text-xxl-center">Admin Güncelleme Sayfası</h6>
+    <hr style="border:solid 2px black" />
+    @using (Html.BeginForm("AdminUpdate", "Settings", FormMethod.Post))
+    {
+        <div>
+
+            <label>ID</label>
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+
+            <br />
+
+            <label>Mail Adress:</label>
+            @Html.TextBoxFor(x => x.USER, new { @class = "form-control" })
+            <br />
+            <label>Şifre</label>
+            @Html.TextBoxFor(x => x.PASSWORD, new { @class = "form-control" })
+            <br />
+            <label>Yetki</label>
+            @Html.TextBoxFor(x => x.AUTHORITY, new { @class = "form-control" })
+
+        </div>
+        <div>
+            <button class="btn fw-semibold w-100" style="margin-top: 25px; margin-bottom: 50px; background-color: #202f44; color: aliceblue">Güncelle</button>
+        </div>
+    }
+
+</div>
+
+

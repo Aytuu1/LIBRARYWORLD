@@ -1,0 +1,51 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLMOVEMENT
+@{
+    ViewBag.Title = "GetRefund";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("LoanedUpdate", "Loaned", FormMethod.Post))
+    {
+        <div class="form-group">
+            <div class="mt-4"></div>
+            <label class="fs-6 fw-bold">Personel ID</label>
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+
+            <br />
+
+            <label class="fs-6 fw-bold">Kitap Adı</label>
+            @Html.TextBoxFor(x => x.TBLBOOK.NAME, new { @class = "form-control" })
+            <br />
+
+            <label class="fs-6 fw-bold">Üye</label>
+            @Html.TextBoxFor(x => x.TBLMEMBERS.NAME, new { @class = "form-control" })
+            <br />
+
+            <label class="fs-6 fw-bold">Kitap Adı</label>
+            @Html.TextBoxFor(x => x.TBLEMPLOYES.EMPLOYE, new { @class = "form-control" })
+
+            <br />
+
+            <label class="fs-6 fw-bold">Alış Tarihi</label>
+            @Html.TextBoxFor(x => x.PURCHASEDATE, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+
+            <br />
+
+            <label class="fs-6 fw-bold">İade Tarihi</label>
+            @Html.TextBoxFor(x => x.RETURNNDATE, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+
+            <br />
+
+            <label class="fs-6 fw-bold">Üyenin Getirdiği Tarih</label>
+            <input type="text" name="RETURNMEMBERDATE" value="@DateTime.Now.ToShortDateString()" class="form-control"/>
+            <br />
+
+            <label>Geç Gelen Gün Sayısı</label>
+            <input type="text" class="form-control" id="LateInput" value=@ViewBag.dgr />
+
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-success" type="submit">Ödünç Kitabı Geri Al</button>
+        </div>
+    }

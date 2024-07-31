@@ -1,0 +1,62 @@
+﻿@using LIBRARYMVC.Models.Entity
+@model List<TBLEMPLOYES>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personeller</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/table.css"> <!-- CSS dosyasını doğru yolda eklediğinizden emin olun -->
+</head>
+<body>
+   
+<div class="container">
+    @using (Html.BeginForm("EmployeSearch", "Employe", FormMethod.Post))
+    {
+        <div class="form-group  ">
+            <b>Personel ara : &nbsp;</b>
+            @Html.TextBox("searchString", ViewBag.SearchString as string, new { @class = "form-control form-control-inline", placeholder = "Aranacak Personeli  Giriniz" })
+            <input type="submit" value="Ara" class="btn btn-primary" />
+          
+        </div>
+    }
+    <div class="table-container">
+        <table class="table table-striped ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>AD</th>
+                    <th>İşlem</th>
+                    <th>Güncelle</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.EMPLOYE</td>
+                        <td><a href="/Employe/EmployeDelete/@item.ID" class="btn btn-danger">Pasif Duruma Al</a></td>
+                        <td><a href="/Employe/EmployeGet/@item.ID" class="btn btn-success">Güncelle</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a href="/Employe/EmployeAdd/" class="btn btn-primary btn-block mt-3">Yeni Personel Ekle</a>
+</div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

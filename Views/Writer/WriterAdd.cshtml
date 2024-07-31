@@ -1,0 +1,25 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLWRITER
+@{
+    ViewBag.Title = "WriterAdd";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div class="mt-4"></div>
+    <div class="mt-2">
+        <label>Yazar Adı</label>
+        @Html.TextBoxFor(x => x.NAME, new{@class="form-control"})
+        @Html.ValidationMessageFor(x => x.NAME)
+        <br/>
+        <label>Yazar Soyadı</label>
+        @Html.TextBoxFor(x=>x.SURNAME,new{@class="form-control"})
+        @Html.ValidationMessageFor(x=>x.SURNAME)
+        <br/>
+        <label>Detay</label>
+        @Html.TextAreaFor(x=>x.DETAIL,new{@class="form-control"})
+    </div>
+    <div>
+        <button class="btn btn-outline-success mt-4" style="color:black">Yazar Ekle</button>
+    </div>
+
+</form>

@@ -1,0 +1,19 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLEMPLOYES
+@{
+    ViewBag.Title = "EmployeAdd";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<div class="col-md-6 mx-auto form-group " style="margin-top:15%">
+    <h6 class="fw-bold text-xxl-center">Personel Ekleme Sayfası</h6>
+    <hr style="border:solid 2px black" />
+    <form method="post">
+        <div class="mt-4"></div>
+        <label>Personel Adı</label>
+        @Html.TextBoxFor(x => x.EMPLOYE, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.EMPLOYE, "", new { style = "color:red" })
+        <br />
+        <button class="btn fw-semibold w-100" style="margin-top: 25px; margin-bottom: 50px; background-color: #202f44; color: aliceblue">Personel Ekle</button>
+    </form>
+
+</div>

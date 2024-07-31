@@ -1,0 +1,116 @@
+﻿@using LIBRARYMVC.Models.Entity
+@model List<TBLCATEGORY>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kategoriler</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- Custom CSS -->
+        <style>
+            .table-container {
+                margin-top: 20px; 
+                max-height: auto; 
+                overflow-y:auto;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 15px;
+                overflow: hidden;
+            }
+
+            .table {
+                margin-bottom: 0;
+                border-radius: 15px;
+            }
+
+            th, td {
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            th {
+                background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+                color: white;
+            }
+
+            .btn {
+                border-radius: 10px;
+            }
+
+            .btn-danger {
+                background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+                border: none;
+            }
+
+                .btn-danger:hover {
+                    background: linear-gradient(135deg, #ff4b2b 0%, #ff416c 100%);
+                }
+
+            .btn-secondary {
+                background: linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%);
+                border: none;
+            }
+
+                .btn-secondary:hover {
+                    background: linear-gradient(135deg, #8f94fb 0%, #4e54c8 100%);
+                }
+
+            .btn-primary {
+                background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+                border: none;
+            }
+
+                .btn-primary:hover {
+                    background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+                }
+
+            h2 {
+                margin-top: 50px;
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Kategoriler</h2>
+            <div class="table-container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>AD</th>
+                            <th>Durum</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.ID</td>
+                                <td>@item.NAME</td>
+                                <td><a href="/Category/CategoryDelete/@item.ID" class="btn btn-danger">Pasif Duruma Al</a></td>
+                                <td><a href="/Category/CategoryGet/@item.ID" class="btn btn-secondary">Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <a href="/Category/CategoryAdd/" class="btn btn-primary btn-block">Yeni Kategori Ekle</a>
+        </div>
+
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

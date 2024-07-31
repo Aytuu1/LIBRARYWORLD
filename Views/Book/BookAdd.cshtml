@@ -1,0 +1,45 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLBOOK
+@{
+    ViewBag.Title = "BookAdd";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<div class="col-md-6 mx-auto form-group " style="margin-top:10%">
+    <h6 class="fw-bold text-xxl-center">Kitap Ekleme Sayfası</h6>
+    <hr style="border:solid 2px black" />
+    <form  method="post">
+        <div class="mt-4"></div>
+
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(x => x.NAME, new { @class = "form-control" })
+        <br />
+
+        <label>Kategori</label>
+        @Html.DropDownListFor(x => x.TBLCATEGORY.ID, (List<SelectListItem>)ViewBag.value1, new { @class = "form-control" })
+
+        <br />
+
+        <label>Yazar</label>
+        @Html.DropDownListFor(x => x.TBLWRITER.ID, (List<SelectListItem>)ViewBag.vle, new { @class = "form-control" })
+
+        <br />
+
+
+        <label>Basım Yılı</label>
+        @Html.TextBoxFor(x => x.PRINTINGYEAR, new { @class = "form-control" })
+
+        <br />
+
+        <label>Yayınevi</label>
+        @Html.TextBoxFor(x => x.PUBLISHER, new { @class = "form-control" })
+
+        <br />
+        <label>Sayfa</label>
+        @Html.TextBoxFor(x => x.PAGE, new { @class = "form-control" })
+
+        <br />
+        <button class="btn fw-semibold w-100" style="margin-top: 25px; margin-bottom: 50px; background-color: #202f44; color: aliceblue">Yeni Kitap Ekle</button>
+        <input type="hidden" name="SITUATION" value="True" />
+    </form>
+    </div>
+

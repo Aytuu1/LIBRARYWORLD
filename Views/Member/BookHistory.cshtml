@@ -1,0 +1,60 @@
+﻿@using LIBRARYMVC.Models.Entity
+@model List<TBLMOVEMENT>
+@{
+    ViewBag.Title = "BookHistory";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .table-danger thead th {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .table-danger tbody tr:nth-child(odd) {
+            background-color: #f8d7da;
+        }
+
+        .table-danger tbody tr:nth-child(even) {
+            background-color: #f1b0b7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center"> Üye: @ViewBag.membername</h2>
+        <div class="table-responsive">
+            <table class="table table-danger table-bordered">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-book"></i> Kitap Adı</th>
+                        <th><i class="fas fa-user"></i> Personel</th>
+                        <th><i class="fas fa-calendar-alt"></i> Alış Tarihi</th>
+                        <th><i class="fas fa-calendar-alt"></i> İade Tarihi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.TBLBOOK.NAME</td>
+                            <td>@x.TBLEMPLOYES.EMPLOYE</td>
+                            <td>@Convert.ToDateTime(@x.PURCHASEDATE).ToString("dd/MM/yyyy")</td>
+                            <td>@Convert.ToDateTime(@x.RETURNMEMBERDATE).ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

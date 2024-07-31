@@ -1,0 +1,65 @@
+﻿@using LIBRARYMVC.Models.Entity
+@model List<TBLWRITER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yazarlar</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/table.css"> <!-- CSS dosyasını doğru yolda eklediğinizden emin olun -->
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("WriterSearch", "Writer", FormMethod.Post))
+        {
+            <div class="form-group  ">
+                <b>Yazar ara : &nbsp;</b>
+                @Html.TextBox("searchString", ViewBag.SearchString as string, new { @class = "form-control form-control-inline", placeholder = "Aranacak Yazarı Giriniz" })
+                <input type="submit" value="Ara" class="btn btn-primary" />
+
+            </div>
+        }
+        <div class="table-container">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>AD</th>
+                        <th>SOYAD</th>
+                        <th>Durum</th>
+                        <th>Güncelle</th>
+                        <th>Yazar Kitapları</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ID</td>
+                            <td>@item.NAME</td>
+                            <td>@item.SURNAME</td>
+                            <td>@Html.ActionLink("Pasife Duruma Al", "WriterDelete", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Pasife Almak İstiyor musunuz?')" })</td>
+                            <td><a href="/Writer/WriterGet/@item.ID" class="btn btn-success">Güncelle</a></td>
+                            <td><a href="/Writer/WriterBook/@item.ID" class="btn btn-info">Yazar Kitapları</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <a href="/Writer/WriterAdd" class="btn btn-primary btn-block">Yeni Yazar Ekle</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

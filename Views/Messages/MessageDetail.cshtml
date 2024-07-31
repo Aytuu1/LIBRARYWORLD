@@ -1,0 +1,46 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLMESSAGES
+@{
+    ViewBag.Title = "MessageDetail";
+    Layout = "~/Views/Shared/LayoutPanel.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mesaj Detayı</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Mesaj Detayı</h3>
+            </div>
+            <div class="card-body">
+                <div class="detail-info mb-4">
+                    <p><strong>Gönderen:</strong> @Model.SENDER</p>
+                    <p><strong>Alıcı:</strong> @Model.BUYER</p>
+                    <p><strong>Konu:</strong> @Model.SUBJECT</p>
+                    <p><strong>Tarih:</strong> @Convert.ToDateTime(Model.DATE).ToString("dd/MM/yyyy")</p>
+                </div>
+                <div class="content">
+                    <p><strong>İçerik:</strong></p>
+                    <p>@Model.CONTENTS</p>
+                </div>
+                <a href="@Url.Action("Index", "Messages")" class="btn btn-primary">Geri dön</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

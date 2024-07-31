@@ -1,0 +1,30 @@
+﻿@model LIBRARYMVC.Models.Entity.TBLWRITER
+@{
+    ViewBag.Title = "WriterGet";
+    Layout = "~/Views/Shared/LıbraryLayout.cshtml";
+}
+
+<h2>WriterGet</h2>
+
+@using (Html.BeginForm("WriterUpdate", "Writer", FormMethod.Post))
+{
+    <div class="mt-4"></div>
+    <div class="form-group">
+        <label>ID</label>
+        @Html.TextBoxFor(x=>x.ID,new{@class="form-control"})
+        <br/>
+        <label>Yazar Adı</label>
+        @Html.TextBoxFor(x => x.NAME, new { @class = "form-control" })
+        <br/>
+        <label>Yazar Soyadı</label>
+        @Html.TextBoxFor(x => x.SURNAME, new { @class = "form-control" })
+        <br/>
+        <label>Detay</label>
+        @Html.TextAreaFor(x => x.DETAIL, new { @class = "form-control" })
+    </div>
+    <div>
+        <button class="btn btn-primary">Güncelle</button>
+    </div>
+
+
+}

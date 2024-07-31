@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e092a20de0354886b11bc55e6859fe16" Name="Diagram1" ZoomLevel="106">
+        <EntityTypeShape EntityType="DBLIBRARYModel.sysdiagrams" Width="1.5" PointX="11" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLBOOK" Width="1.5" PointX="7.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCATEGORY" Width="1.5" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCRIMINAL" Width="1.5" PointX="2.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLEMPLOYES" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMEMBERS" Width="1.5" PointX="0.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMOVEMENT" Width="1.5" PointX="4.625" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLSAFE" Width="1.5" PointX="9.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLWRITER" Width="1.5" PointX="5" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLBOOK_TBLCATEGORY" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLBOOK_TBLWRITER" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLMOVEMENT_TBLBOOK" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLCRIMINAL_TBLMEMBERS" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLCRIMINAL_TBLMOVEMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLMOVEMENT_TBLEMPLOYES" ManuallyRouted="false" />
+        <AssociationConnector Association="DBLIBRARYModel.FK_TBLMOVEMENT_TBLMEMBERS" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCOMMENT" Width="1.5" PointX="11.625" PointY="0.5" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLCOMMUNICATION" Width="1.5" PointX="7.625" PointY="0.625" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLMESSAGES" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLANNOUNCEMENT" Width="1.5" PointX="8.875" PointY="3.75" />
+        <EntityTypeShape EntityType="DBLIBRARYModel.TBLADMİN" Width="1.5" PointX="11.125" PointY="2.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
