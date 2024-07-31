@@ -24,15 +24,15 @@ Working on this project allowed me to enhance my technical knowledge and experie
 Admin Panel Login: /AdminLogin/Login/
 Admin mail: Aytuuc1@gmail.com
 Admin Password:852123456
-![Alt text](./images/Showcase.png)
-![Alt text](./images/adminInactive.png)
-![Alt text](./images/adminannouncement.png)
-![Alt text](./images/admincategory.png)
-![Alt text](./images/admingallery.png)
-![Alt text](./images/adminlogin.png)
-![Alt text](./images/adminsettings.png)
-![Alt text](./images/adminstatics.png)
-![Alt text](./images/adminstatics2.png)
+![Alt text](./imagess/Showcase.png)
+![Alt text](./imagess/adminInactive.png)
+![Alt text](./imagess/adminannouncement.png)
+![Alt text](./imagess/admincategory.png)
+![Alt text](./imagess/admingallery.png)
+![Alt text](./imagess/adminlogin.png)
+![Alt text](./imagess/adminsettings.png)
+![Alt text](./imagess/adminstatics.png)
+![Alt text](./imagess/adminstatics2.png)
 
 
 
